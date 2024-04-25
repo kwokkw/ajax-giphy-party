@@ -48,3 +48,9 @@ button:focus {
 #remove-btn {
     background-color: red;
 }
+
+img {
+    max-width: 240px;
+    height: auto;
+    margin: 0.5rem;
+}

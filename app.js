@@ -1,18 +1,28 @@
-console.log("Let's get this party started!");
+const input = document.querySelector("#search");
+const form = document.querySelector("#search-form");
+const imagesCTR = document.querySelector("#images-container");
+const removeBtn = document.querySelector("#remove-btn");
 
-async function getGif() {
+async function getGif(value) {
+  const idx = Math.floor(Math.random() * 25);
   const respond = await axios.get("https://api.giphy.com/v1/gifs/search", {
     params: {
       api_key: "DHy2Qz3zZd1xQ9v5IvahNpHlzVM7DP8e",
-      q: "cheeseburgers",
-      limit: 1,
-      rating: "g",
+      q: value,
     },
   });
-  const url = respond.data.data[0].bitly_gif_url;
-  console.log(respond.data.data[0]);
-  const img = document.querySelector("img");
+  const url = respond.data.data[idx].images.original.url;
+  const img = document.createElement("img");
   img.src = url;
+  imagesCTR.append(img);
 }
 
-getGif();
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  getGif(input.value.trim().toLowerCase());
+  form.reset();
+});
+
+removeBtn.addEventListener("click", function (e) {
+  imagesCTR.innerHTML = "";
+});
