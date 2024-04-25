@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    background-image: linear-gradient(hsla(0, 0%, 100%, 0.3), black);
+}
+
+form {
+    margin-top: 1rem;
+}
+
+form * {
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    margin: 0.2rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 2px blue solid;
+}
+
+#submit-btn:focus {
+    background-color: black;
+}
+
+#submit-btn, #remove-btn {
+    color: inherit;
+}
+
+#submit-btn {
+    background-color: hsla(0, 0%, 100%, 0.15);
+}
+
+#remove-btn {
+    background-color: red;
+}
